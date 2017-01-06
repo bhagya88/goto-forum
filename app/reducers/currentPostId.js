@@ -1,4 +1,4 @@
-export default function subreddit(state = 'austin', action = {}){
+export default function currentPostId(state = 1, action = {}){
 
 	switch(action.type){
 

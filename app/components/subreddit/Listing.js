@@ -14,15 +14,15 @@ export default class Listing extends Component {
 	}
 
 	componentDidMount() {
-		axios.get('/posts/' + this.props.params.subredditId).then(posts => {
-			this.setState({ posts: posts.data });
-		});
+		// axios.get('/posts/' + this.props.params.subredditId).then(posts => {
+		// 	this.setState({ posts: posts.data });
+		// });
 	}
 
 	componentDidUpdate() {
-		axios.get('/posts/' + this.props.params.subredditId).then(posts => {
-			this.setState({ posts: posts.data });
-		});
+		// axios.get('/posts/' + this.props.params.subredditId).then(posts => {
+		// 	this.setState({ posts: posts.data });
+		// });
 	}
 
 	render() {
