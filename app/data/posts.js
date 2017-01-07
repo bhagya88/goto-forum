@@ -1,62 +1,71 @@
 module.exports = {
 	                posts: [
-						{post : 'austinPost1',
+						{title : 'austinPost1',
+						 content : 'austin content1',
 						 subreddit : 'Austin',
 						 subredditId : 'austin',
 						 comments : ["austinpost1Comment1","austinpost1Comment2"],
 						 _id: 1
 						 },
-						 {post : 'austinPost2',
+						 {title : 'austinPost2',
+						 content : 'austin content2',
 						 subreddit : 'Austin',
 						 subredditId : 'austin',
 						 comments : ["austinpost2Comment1","austinpost2Comment2"],
 						 _id:2
 						 },
-						 {post : 'austinPost3',
+						 {title : 'austinPost3',
+						 content : 'austin content3',
 						 subreddit : 'Austin',
 						 subredditId : 'austin',
 						 comments : ["austinpost3Comment1","austinpost3Comment2"],
 						 _id:3
 						 },
-						 {post : 'nyPost1',
+						 {title : 'nyPost1',
+						 content : 'ny content1',
 						 subreddit : 'New York',
 						 subredditId : 'newyork',
-						 comments : ["nypost1Comment1","austinpost1Comment2"],
+						 comments : ["nypost1Comment1","nypost1Comment2"],
 						 _id:4
 						 },
 
-						 {post : 'nyPost2',
+						 {title : 'nyPost2',
+						 content : 'ny content2',
 						 subreddit : 'New York',
-						 subredditId : 'austin',
-						 comments : ["nyPost2Comment1","austinpost2Comment2"],
+						 subredditId : 'newyork',
+						 comments : ["nyPost2Comment1","nypost2Comment2"],
 						 _id:5
 						 },
 
-						 {post : 'SeattlePost1',
+						 {title : 'SeattlePost1',
+						 content : 'seattle content1',
 						 subreddit : 'Seattle',
 						 subredditId : 'seattle',
-						 comments : ["seattlepost1Comment1","austinpost1Comment2"],
+						 comments : ["seattlepost1Comment1","seattlepost1Comment2"],
 						 _id:6
 						 },
 
-						 {post : 'SeattlePost2',
+						 {title : 'SeattlePost2',
+						  content : 'seattle content2',
 						 subreddit : 'Seattle',
 						 subredditId : 'seattle',
-						 comments : ["seattlepost2Comment1","austinpost2Comment2"],
+						 comments : ["seattlepost2Comment1","seattlepost2Comment2"],
 						 _id:7
 						 },
 
-						 {post : 'SeattlePost3',
+						 {title : 'SeattlePost3',
+						  content : 'seattle content3',
 						 subreddit : 'Seattle',
-						 subredditId : 'austin',
-						 comments : ["seattlepost3Comment1","austinpost3Comment2"],
+						 subredditId : 'seattle',
+						 comments : ["seattlepost3Comment1","seattlepost3Comment2"],
 						 _id:8
 						 },
 
-						 {post : 'SeattlePost4',
+						 {title : 'SeattlePost4',
+						  content : 'Seattle content4',
 						 subreddit : 'Seattle',
 						 subredditId : 'seattle',
-						 comments : ["seattlepost4Comment1","austinpost4Comment2"],
+						 comments : ["seattlepost4Comment1","seattlepost4Comment2"],
 						 _id:9
 						 }
 
