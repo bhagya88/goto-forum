@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const Post = new mongoose.Schema({
-	author: String,
-	comments: Array,
+
+	title: String,
 	content: String,
 	subreddit: String,
 	subredditId: String,
-	title: String,
-
+	author: String,
+	comments: Array,
 	created_at: Date,
 	updated_at: Date
 });

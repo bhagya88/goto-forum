@@ -20,8 +20,16 @@ export default function posts(state =[], action = {}){
 			return newState;
 
 			case 'ADD_POST':
-				var newState = state.concat({title: action.title, content: action.content, _id : Data.now()})
+			    var id = new Date().getTime();
+				var newState = state.concat({
+					title: action.title,
+					content: action.content,
+					_id : id,
+					subredditId: action.subredditId,
+				    comments:[]
+				});
 
+				return newState;
 			default:
 			  return state;
 	}

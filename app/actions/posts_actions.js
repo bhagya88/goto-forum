@@ -8,11 +8,12 @@ export function addComment(postId,comment){
 }
 
 
-export function addPost(title,content){
+export function addPost(title,content,subredditId){
 
 	return{
 		type: 'ADD_POST',
 		title,
-		content
+		content,
+		subredditId
 	}
 }

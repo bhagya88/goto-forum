@@ -6,7 +6,11 @@ class Post extends Component {
 	render() {
 		return (
 			<div>
-				<p>{this.props.post.title}</p>
+				<p>
+					<i className="small material-icons">description</i>
+					{this.props.post.title}
+				</p>
+				
 				<ul>
 					{this.props.post.comments.map((comment,i) => <p key={i} >{comment}</p> )}
 				</ul>

@@ -22,7 +22,7 @@ class PostForm extends Component {
   handleSubmit(e){
 
     if(this.state.title.length && this.state.content.length){
-     this.props.addPost(this.state.title, this.state.content);
+     this.props.addPost(this.state.title, this.state.content,this.props.activeSubredditId);
       this.setState({ title: '', content:'' });
     }
     
@@ -34,7 +34,7 @@ class PostForm extends Component {
 	                  <div className="card-content note-card ">
 	                    <span className="card-title activator white-text text-darken-4">New Comment</span>
 	                    <input type="text" id="title" value={ this.state.title } onChange={this.handleChange.bind(this)} name="title"  className="cursiveFont" />
-                      <input type="textarea" id="content" value={ this.state.content } onChange={this.handleChange.bind(this)} name="content"  className="cursiveFont" />
+                      <textarea  id="content" value={ this.state.content } onChange={this.handleChange.bind(this)} name="content"  className="materialize-textarea cursiveFont" />
 
 	                  </div>
 	                  <div className="card-image waves-effect waves-block waves-light center light-blue darken-4">
@@ -54,9 +54,9 @@ PostForm.propTypes = {
 
 function mapStateToProps(state){
   return {
-  	
+  	activeSubredditId: state.activeSubredditId
   } 
 }
 
 
-export default connect(mapStateToProps,{ addComment })(PostForm);
+export default connect(mapStateToProps,{ addPost })(PostForm);
