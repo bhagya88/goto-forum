@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var path = require('path');
 //var methodOverride = require('method-override');
-var request = require('request');
+
 var Promise = require('bluebird');
 var logger = require('morgan');
 
