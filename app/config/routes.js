@@ -17,11 +17,11 @@ import  data from '../data/posts';
 // Renders the contents according to the route page.
 
 
- const store = createStore(rootReducer, data, 
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  );
+ // const store = createStore(rootReducer, data, 
+ //    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+ //  );
 
-//const store = createStore(rootReducer,data);
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
 module.exports = (
   

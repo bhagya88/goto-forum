@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { setActive } from '../actions/activeSubredditId_actions';
+import { setActive } from '../actions/activeSubreddit_actions';
 
 class Menu extends Component {
 	render() {
@@ -25,8 +25,6 @@ Menu.propTypes = {
 
   setActive: React.PropTypes.func
 
-
- 
 }
 
 function mapStateToProps(state){

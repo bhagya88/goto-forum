@@ -2,6 +2,9 @@ export default function posts(state =[], action = {}){
 
 	switch(action.type){
 
+		case 'SET_POSTS' :
+		     return action.posts;
+
 		case 'ADD_COMMENT' :
 
 		    var newState = state.map(function(post){
@@ -21,13 +24,7 @@ export default function posts(state =[], action = {}){
 
 			case 'ADD_POST':
 			    var id = new Date().getTime();
-				var newState = state.concat({
-					title: action.title,
-					content: action.content,
-					_id : id,
-					subredditId: action.subredditId,
-				    comments:[]
-				});
+				var newState = state.concat(action.post);
 
 				return newState;
 			default:

@@ -8,5 +8,4 @@ export default function currentPostId(state = 1, action = {}){
 		return state;
 	}
 
-	return state;
 }

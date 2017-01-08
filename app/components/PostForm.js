@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addPost } from '../actions/posts_actions';
+import { despatchAddPost } from '../actions/posts_actions';
 
 class PostForm extends Component {
 
@@ -22,7 +22,15 @@ class PostForm extends Component {
   handleSubmit(e){
 
     if(this.state.title.length && this.state.content.length){
-     this.props.addPost(this.state.title, this.state.content,this.props.activeSubredditId);
+     this.props.despatchAddPost({
+      title: this.state.title,
+      content: this.state.content,
+      subreddit: this.props.activeSubreddit,
+      subredditId: this.props.activeSubredditId,
+      comments:[],
+      created_at: new Date()
+    });
+
       this.setState({ title: '', content:'' });
     }
     
@@ -48,15 +56,16 @@ class PostForm extends Component {
 
 PostForm.propTypes = {
 
-    addPost: React.PropTypes.func
+    despatchAddPost: React.PropTypes.func
 
 }
 
 function mapStateToProps(state){
   return {
-  	activeSubredditId: state.activeSubredditId
+  	activeSubreddit: state.activeSubreddit,
+    activeSubredditId: state.activeSubreddit.replace(/ /g,'').toLowerCase()
   } 
 }
 
 
-export default connect(mapStateToProps,{ addPost })(PostForm);
+export default connect(mapStateToProps,{ despatchAddPost })(PostForm);

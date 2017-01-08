@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addComment } from '../actions/posts_actions';
+import { despatchAddComment } from '../actions/posts_actions';
 
 class CommentForm extends Component {
 
@@ -22,7 +22,8 @@ class CommentForm extends Component {
 
     if(this.state.comment.length){
 
-      this.props.addComment(this.props.post._id, this.state.comment);
+      this.props.despatchAddComment(this.props.post._id,
+       this.state.comment);
       this.setState({ comment: ''});
     }
 
@@ -49,7 +50,7 @@ class CommentForm extends Component {
 CommentForm.propTypes = {
 
   post: React.PropTypes.object,
-  addComment: React.PropTypes.func
+  despatchAddComment: React.PropTypes.func
 
 }
 
@@ -60,4 +61,4 @@ function mapStateToProps(state){
 }
 
 
-export default connect(mapStateToProps,{ addComment })(CommentForm);
+export default connect(mapStateToProps,{ despatchAddComment })(CommentForm);
