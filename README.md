@@ -31,10 +31,9 @@ This is a reddit like forum where users can post information about topics of the
 
 ### How it works
 
-* When the user visits the site the news articles are webscraped, and checked if they already exist in the database. If they don't, then they added to the database.
+* The user click on the forum of his choice and post messages.
 
-* The use can navigate to next or previous articles and leave his notes.
+* The user can leave his comments on the posts.
 
-* The user also has an option to delete the individual article or all articles.
 
 ##### Developed by Bhagya
