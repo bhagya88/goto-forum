@@ -8,11 +8,15 @@ class PostForm extends Component {
 	  super(props);
 	  this.state = {
 	    title: '',
-      content: ''
+      content: '',
+      subreddit:''
     };
 	}
 
-  
+  componentWillReceiveProps(nextProps){
+    this.setState({subreddit: nextProps.activeSubreddit});
+  }
+
   handleChange(e){
 
     this.setState({ [e.target.name] : e.target.value})
@@ -25,8 +29,8 @@ class PostForm extends Component {
      this.props.despatchAddPost({
       title: this.state.title,
       content: this.state.content,
-      subreddit: this.props.activeSubreddit,
-      subredditId: this.props.activeSubredditId,
+      subreddit: this.state.subreddit,
+      subredditId: this.state.subreddit.replace(/ /g,'').toLowerCase(),
       comments:[],
       created_at: new Date()
     });
@@ -41,6 +45,7 @@ class PostForm extends Component {
                   <form id="postForm" onSubmit={this.handleSubmit.bind(this)}>
 	                  <div className="card-content note-card ">
 	                    <span className="card-title activator white-text text-darken-4">New Comment</span>
+                      <input type="text" id="subreddit" value={ this.state.subreddit } onChange={this.handleChange.bind(this)} name="subreddit"  className="cursiveFont" />
 	                    <input type="text" id="title" value={ this.state.title } onChange={this.handleChange.bind(this)} name="title"  className="cursiveFont" />
                       <textarea  id="content" value={ this.state.content } onChange={this.handleChange.bind(this)} name="content"  className="materialize-textarea cursiveFont" />
 

@@ -3,16 +3,7 @@ const router = express.Router();
 
 const Post = require('../models/post');
 
-// router.get('/:subreddit', (req, res) => {
-// 	let subredditId = req.params.subreddit.toLowerCase();
-// 	subredditId = subredditId.replace(/ /g, '');
 
-// 	Post.find({
-// 		subredditId: subredditId
-// 	}, (err, results) => {
-// 		res.json(results);
-// 	});
-// });
 
 // get all posts
 router.get("/", function(req, res) {
@@ -35,7 +26,7 @@ router.get("/", function(req, res) {
 
 
 
-// Add comment to a post
+// Add a post
 router.post("/", function(req, res) {
   console.log(req.body);
   // Create a new note and pass the req.body to the entry

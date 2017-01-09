@@ -4,6 +4,7 @@ import { setCurrent } from '../actions/currentPostId_actions';
 import { Link } from 'react-router';
 import PostForm from './PostForm';
 import { despatchSetPosts } from '../actions/posts_actions';
+import moment from 'moment';
 
 class PostsComponent extends Component {
 
@@ -11,19 +12,44 @@ class PostsComponent extends Component {
 
 	this.props.despatchSetPosts();	
 	}
+
+
+	getTimeMsg(time){
+
+
+		var now = moment(new Date());
+		var dt = moment(new Date(time));
+		var timeMsg = 'posted ' + moment.duration(now.diff(dt)).humanize() + ' ago';
+
+		return timeMsg;
+
+		
+
+	}
+
 	render() {
+
+
 		return (
 			<div>
 				<ul>
-					<p>{this.props.activeSubredditId}</p>
+					<p>{'Goto '}{this.props.activeSubreddit}</p>
 					{this.props.posts.map((e,i) => {
-						return (<Link key={i}  to={`/${e.subredditId}/${e._id}`} >
-						<p key={i} onClick={this.props.setCurrent.bind(null,e._id)} >
-							<i className="small material-icons">description</i>
-							{e.title} 
-							<p>{e.comments.length} {'comments'}</p>
-						</p>
-						</Link>);
+						return (
+						<li className="valign-wrapper">
+							<Link key={i}  to={`/${e.subredditId}/${e._id}`} >
+							<div key={i} onClick={this.props.setCurrent.bind(null,e._id)}  >
+								
+								<p className="valign-wrapper" ><i className="small material-icons valign">description</i>
+								<span>{e.title}</span></p>
+
+								<p className="black-text"><i>{this.getTimeMsg(e.created_at)}</i></p>
+								<p className="pink-text">{e.comments.length} {'comments'}</p>
+							</div>
+							</Link>
+						</li>
+
+						);
 					},this )}
 				</ul>
 				<PostForm />
@@ -50,14 +76,16 @@ function mapStateToProps(state){
 	  console.log("mapStateToProps PostsComponent",id);
 	  return {
 	  	posts: state.posts.filter(e => e.subredditId === id),
-	  	activeSubredditId: id
+	  	activeSubredditId: id,
+	  	activeSubreddit: state.activeSubreddit
 	  }
 
   }else {
 
   	return {
   		posts: state.posts,
-	  	activeSubredditId: state.activeSubreddit.replace(/ /g,'').toLowerCase()
+	  	activeSubredditId: state.activeSubreddit.replace(/ /g,'').toLowerCase(),
+	  	activeSubreddit: state.activeSubreddit
   	}
   }
 }

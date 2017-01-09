@@ -1,20 +1,38 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CommentForm from './CommentForm';
+import moment from 'moment';
 
 class Post extends Component {
 	render() {
+
+
+
+
+
+
 		return (
 			<div>
-				<p>
-					<i className="small material-icons">description</i>
+				<p className="valign-wrapper row">
+					<i className="small material-icons valign">description</i>
 					{this.props.post.title}
+					
+
 				</p>
 				
-				<ul>
-					{this.props.post.comments.map((comment,i) => <p key={i} >{comment}</p> )}
+				<ul className="row">
+					{this.props.post.comments.map((comment,i) => 
+						<p key={i} className="valign-wrapper col s10 offset-s1">
+						 <i className="small material-icons valign">label</i>
+						 <span>{comment}</span>
+
+						</p> 
+
+						)}
 				</ul>
-				<CommentForm />
+				<div className="row">
+					<CommentForm />
+				</div>
 			</div>
 		);
 	}

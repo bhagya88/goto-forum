@@ -4,7 +4,7 @@
 This is a reddit like forum where users can post information about topics of their choice and  leave comments on the posts.
 
 ### Demo
-[Click to view Demo](https://bc-forum.herokuapp.com/)
+[Click to view Demo](https://goto-forum.herokuapp.com/)
 
 ### Technologies used
 
