@@ -28,7 +28,8 @@ router.get("/", function(req, res) {
 
 // Add a post
 router.post("/", function(req, res) {
-  console.log(req.body);
+  console.log("post request");
+  console.log("body",req.body);
   // Create a new note and pass the req.body to the entry
      
      var entry = new Post(req.body.post);

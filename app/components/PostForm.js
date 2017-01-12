@@ -45,9 +45,9 @@ class PostForm extends Component {
                   <form id="postForm" onSubmit={this.handleSubmit.bind(this)}>
 	                  <div className="card-content note-card ">
 	                    <span className="card-title activator white-text text-darken-4">New Comment</span>
-                      <input type="text" id="subreddit" value={ this.state.subreddit } onChange={this.handleChange.bind(this)} name="subreddit"  className="cursiveFont" />
-	                    <input type="text" id="title" value={ this.state.title } onChange={this.handleChange.bind(this)} name="title"  className="cursiveFont" />
-                      <textarea  id="content" value={ this.state.content } onChange={this.handleChange.bind(this)} name="content"  className="materialize-textarea cursiveFont" />
+                      <input type="text" id="subreddit" value={ this.state.subreddit } onChange={this.handleChange.bind(this)} name="subreddit"  className="cursiveFont" placeholder="forum"/>
+	                    <input type="text" id="title" value={ this.state.title } onChange={this.handleChange.bind(this)} name="title"  className="cursiveFont" placeholder="title"/>
+                      <textarea  id="content" value={ this.state.content } onChange={this.handleChange.bind(this)} name="content"  className="materialize-textarea cursiveFont" placeholder="content"/>
 
 	                  </div>
 	                  <div className="card-image waves-effect waves-block waves-light center light-blue darken-4">

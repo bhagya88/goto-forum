@@ -33,7 +33,7 @@ class PostsComponent extends Component {
 		return (
 			<div>
 				<ul>
-					<p>{'Goto '}{this.props.activeSubreddit}</p>
+					<p>{'Goto '}{this.props.activeSubreddit}  {'Add Post'}</p>
 					{this.props.posts.map((e,i) => {
 						return (
 						<li className="valign-wrapper">
