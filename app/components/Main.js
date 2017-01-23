@@ -36,7 +36,7 @@ class Main extends Component {
 		    <div className="container">
 	        {/* This code will dump the correct Child Component */}
 	        {this.props.children}
-	      </div>
+	      	</div>
 	     
 	    </div>
 		);

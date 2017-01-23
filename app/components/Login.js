@@ -1,6 +1,7 @@
 // get all dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { despatchAuthLogin, despatchAuthSignup } from '../actions/auth_actions';
 
 // create the component
@@ -31,6 +32,9 @@ class Login extends Component {
 	}
 
   componentWillReceiveProps(nextProps){
+  	if(nextProps.isLoggedIn){
+  		browserHistory.push('/');
+  	}
     this.setState({
     				loginMessage: nextProps.loginMessage,
     			    signupMessage: nextProps.signupMessage
@@ -161,7 +165,9 @@ Login.propTypes = {
 function mapStateToProps(state){
   return {
   	loginMessage: state.auth.loginMessage,
-    signupMessage: state.auth.signupMessage
+    signupMessage: state.auth.signupMessage,
+    isLoggedIn: state.auth.isLoggedIn
+
   } 
 }
 
