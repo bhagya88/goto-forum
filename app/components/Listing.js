@@ -1,5 +1,5 @@
+// get all dependencies
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import ListItem from './ListItem';
 
@@ -7,24 +7,14 @@ export default class Listing extends Component {
 	constructor() {
 		super();
 
+		// set the initial value for the state
 		this.state = {
 			
 			posts: []
 		}
 	}
 
-	componentDidMount() {
-		// axios.get('/posts/' + this.props.params.subredditId).then(posts => {
-		// 	this.setState({ posts: posts.data });
-		// });
-	}
-
-	componentDidUpdate() {
-		// axios.get('/posts/' + this.props.params.subredditId).then(posts => {
-		// 	this.setState({ posts: posts.data });
-		// });
-	}
-
+	// return the html
 	render() {
 		return (
 			<ul>

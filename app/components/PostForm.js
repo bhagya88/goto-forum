@@ -9,7 +9,7 @@ class PostForm extends Component {
 	  this.state = {
 	    title: '',
       content: '',
-      subreddit:''
+      subreddit:this.props.activeSubreddit
     };
 	}
 
@@ -31,6 +31,7 @@ class PostForm extends Component {
       content: this.state.content,
       subreddit: this.state.subreddit,
       subredditId: this.state.subreddit.replace(/ /g,'').toLowerCase(),
+      author: this.props.author,
       comments:[],
       created_at: new Date()
     });
@@ -68,7 +69,8 @@ PostForm.propTypes = {
 function mapStateToProps(state){
   return {
   	activeSubreddit: state.activeSubreddit,
-    activeSubredditId: state.activeSubreddit.replace(/ /g,'').toLowerCase()
+    activeSubredditId: state.activeSubreddit.replace(/ /g,'').toLowerCase(),
+    author:state.auth.username
   } 
 }
 

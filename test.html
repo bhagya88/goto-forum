@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reddit!</title>
+
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+	<!-- This is where React will deploy the contents it generates -->
+	
+	<div className="container ">
+		<div class="row pink valign-wrapper ">
+			
+			<div class="col s1 offset-s2"><Link to="/austin" onClick={this.props.setActive.bind(null,'Austin')}>Austin</Link></div>
+			<div class="col s1 "><Link to="/newyork" onClick={this.props.setActive.bind(null,'New York')}>New York</Link></div>
+			<div class="col s1"><Link to="/seattle" onClick={this.props.setActive.bind(null,'Seattle')}>Seattle</Link></div>
+
+			<div class="col s1 offset-s2">
+					<input type="text" id="email"  className="cursiveFont" placeholder="email"/>
+			</div>
+			<div class="col s1">
+				 <input type="text" id="password"  className="cursiveFont" placeholder="password"/>
+			</div>
+			<div class="col  s2 valign">
+				  <a class="waves-effect waves-light btn flat">login</a>
+			</div>
+		</div>
+ 	<div>
+
+	<!-- All of our JS code will be transpiled into this bundle.js file -->
+	<script src="bundle.js"></script>
+
+</body>
+</html>
+
+
+
+	  
+		     

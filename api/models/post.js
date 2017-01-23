@@ -1,5 +1,7 @@
+// get all dependencies
 const mongoose = require('mongoose');
 
+// create the schema
 const Post = new mongoose.Schema({
 
 	title: String,
@@ -12,4 +14,5 @@ const Post = new mongoose.Schema({
 	updated_at: Date
 });
 
+// create and export the model
 module.exports = mongoose.model('post', Post);

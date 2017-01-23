@@ -1,11 +1,15 @@
+// get all dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { despatchAddComment } from '../actions/posts_actions';
 
+// comment Form components lets you submit a comment
 class CommentForm extends Component {
 
  constructor(props) {
 	  super(props);
+
+    // keeps track of user input
 	  this.state = {
 	    comment: ''
 	    };
@@ -13,15 +17,15 @@ class CommentForm extends Component {
 
 
   handleChange(e){
-
+    // set the state
     this.setState({ [e.target.name] : e.target.value})
 
   }
 
   handleSubmit(e){
 
+    // check if there is comment available to submit
     if(this.state.comment.length){
-
       this.props.despatchAddComment(this.props.post._id,
        this.state.comment);
       this.setState({ comment: ''});
@@ -30,6 +34,8 @@ class CommentForm extends Component {
     
   }
 	render() {
+
+    //return the html form
 		return (
 			<div className="card transparent center">
                   <form id="commentForm" onSubmit={this.handleSubmit.bind(this)}>
@@ -47,6 +53,7 @@ class CommentForm extends Component {
 	}
 }
 
+// all props available
 CommentForm.propTypes = {
 
   post: React.PropTypes.object,
@@ -54,11 +61,12 @@ CommentForm.propTypes = {
 
 }
 
+// get props from store
 function mapStateToProps(state){
   return {
   	post: state.posts.find(e => e._id === state.currentPostId)
   } 
 }
 
-
+// connect the component to store
 export default connect(mapStateToProps,{ despatchAddComment })(CommentForm);

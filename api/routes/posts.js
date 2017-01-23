@@ -1,6 +1,6 @@
+// get all dependencies
 const express = require('express')
 const router = express.Router();
-
 const Post = require('../models/post');
 
 
@@ -49,7 +49,7 @@ router.post("/", function(req, res) {
  });
 
 
-// Add comment to a post
+// Add note to a post
 router.post("/:id", function(req, res) {
   console.log(req.body);
   // Create a new note and pass the req.body to the entry

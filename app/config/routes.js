@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexRoute, Route, Router, hashHistory } from 'react-router';
+import { IndexRoute, Route, Router, browserHistory } from 'react-router';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
@@ -10,6 +10,9 @@ import { BrowserRouter } from 'react-router';
 import Main from '../components/Main';
 import PostsComponent from '../components/PostsComponent';
 import Post from '../components/Post';
+import PostForm from '../components/PostForm';
+import EnsureLoggedInContainer from '../components/EnsureLoggedInContainer';
+import Login from '../components/Login';
 //import Listing from '../components/subreddit/Listing';
 
 
@@ -26,11 +29,22 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 module.exports = (
   
   <Provider store={store}>
-	  <Router history={hashHistory}>
+	  <Router history={browserHistory}>
 	    <Route path="/" component={Main}>
-				<Route path=":redditId" component={PostsComponent}>
+	            
+	            <Route component={EnsureLoggedInContainer}>
+	    			<Route path="newpost" component={PostForm} />
+					
 				</Route>
-				<Route path="/:redditId/:postId" component={Post} />
+	    		<Route path="login" component={Login} />
+	    		<Route path=":redditId" component={PostsComponent} />
+				<Route path=":redditId/:postId" component={Post} />
+				
+
+
+	    		
+				
+				
 				<IndexRoute component={PostsComponent} />
 	    </Route>
 	  </Router>

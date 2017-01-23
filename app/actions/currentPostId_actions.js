@@ -1,3 +1,4 @@
+// create all actions associated with currentPostId
 export function setCurrent(postId){
 
 	return{

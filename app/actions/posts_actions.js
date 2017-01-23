@@ -1,3 +1,4 @@
+// create all actions associated with activeSubreddit
 export function  setPosts(posts){
 
 	return{

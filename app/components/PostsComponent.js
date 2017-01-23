@@ -32,6 +32,14 @@ class PostsComponent extends Component {
 
 		return (
 			<div>
+				<div>
+					<Link to="/newpost">
+						<a className="waves-effect waves-light btn flat">Add new post</a>
+					</Link>
+				</div>
+
+				
+
 				<ul>
 					<p>{'Goto '}{this.props.activeSubreddit}  {'Add Post'}</p>
 					{this.props.posts.map((e,i) => {
@@ -43,7 +51,7 @@ class PostsComponent extends Component {
 								<p className="valign-wrapper" ><i className="small material-icons valign">description</i>
 								<span>{e.title}</span></p>
 
-								<p className="black-text"><i>{this.getTimeMsg(e.created_at)}</i></p>
+								<p className="black-text"><i>{this.getTimeMsg(e.created_at)}{' by '}{e.author}</i></p>
 								<p className="pink-text">{e.comments.length} {'comments'}</p>
 							</div>
 							</Link>
@@ -52,7 +60,7 @@ class PostsComponent extends Component {
 						);
 					},this )}
 				</ul>
-				<PostForm />
+				
 			</div>
 		);
 	}
