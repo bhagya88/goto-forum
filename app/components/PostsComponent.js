@@ -20,15 +20,17 @@ class PostsComponent extends Component {
 
 		return (
 			<div>
+				
+
 				<div>
 					<Link to="/newpost">
-						<a className="waves-effect waves-light btn flat">Add new post</a>
+						<a className="btn flat transparent red-text">Add new post</a>
 					</Link>
 				</div>
 
 
 				<ul>
-					<p>{'Goto '}{this.props.activeSubreddit}  {'Add Post'}</p>
+					
 					{this.props.posts.map((e,i) => {
 						return (
 						<li className="valign-wrapper">

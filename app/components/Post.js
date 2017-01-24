@@ -36,7 +36,7 @@ class Post extends Component {
 				<p className="black-text"><i>{'Posted '} {getTimeMsg(this.props.post.created_at)}{' by '}{this.props.post.author}</i></p>
 
 				<div>
-					{ renderCommentButton ? <Link to={newCommentUrl}><a className="waves-effect waves-light btn flat">Add new comment</a></Link> : <span></span>}
+					{ renderCommentButton ? <Link to={newCommentUrl}><a className="transparent btn flat red-text">Add comment</a></Link> : <span></span>}
 				</div>
 
 				<div>
