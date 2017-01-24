@@ -29,6 +29,10 @@ class Post extends Component {
 					<i className="small material-icons valign">description</i>
 					{this.props.post.title}
 				</p>
+				<p className="valign-wrapper row">
+					
+					{this.props.post.content}
+				</p>
 				<p className="black-text"><i>{'Posted '} {getTimeMsg(this.props.post.created_at)}{' by '}{this.props.post.author}</i></p>
 
 				<div>
