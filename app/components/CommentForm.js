@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { despatchAddComment } from '../actions/posts_actions';
-import getTimeMsg  from '../utils/getTimeMsg';
 
 // comment Form components lets you submit a comment
 class CommentForm extends Component {
@@ -41,17 +40,16 @@ class CommentForm extends Component {
 
     //return the html form
 		return (
-			<div className="card transparent center">
-                  <form id="commentForm" onSubmit={this.handleSubmit.bind(this)}>
-	                  <div className="card-content note-card ">
-	                    <span className="card-title activator white-text text-darken-4">New Comment</span>
-	                    <input type="text" id="comment" value={ this.state.comment } onChange={this.handleChange.bind(this)} name="comment"  className="cursiveFont" />
+			<div className="row">
+                 
+	             
+	                 
+	                    <input type="text" id="comment" value={ this.state.comment } onChange={this.handleChange.bind(this)} name="comment"  className="cursiveFont col s6 offset-s1" placeholder="comment"/>
 
-	                  </div>
-	                  <div className="card-image waves-effect waves-block waves-light center light-blue darken-4">
-	                   <i id="save" type="submit" className="material-icons small" onClick={this.handleSubmit.bind(this)}>save</i>
-	                  </div>
-                  </form>
+	                
+	                   <button id="save" type="submit" className="btn small col s1 offset-s1" onClick={this.handleSubmit.bind(this)}>save</button>
+	                  
+                  
      		</div>
 		);
 	}
