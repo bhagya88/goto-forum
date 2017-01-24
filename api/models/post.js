@@ -9,7 +9,7 @@ const Post = new mongoose.Schema({
 	subreddit: String,
 	subredditId: String,
 	author: String,
-	comments: Array,
+	comments: Array ,
 	created_at: Date,
 	updated_at: Date
 });

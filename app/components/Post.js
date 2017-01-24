@@ -29,7 +29,7 @@ class Post extends Component {
 					<i className="small material-icons valign">description</i>
 					{this.props.post.title}
 				</p>
-				<p className="black-text"><i>{getTimeMsg(this.props.post.created_at)}{' by '}{this.props.post.author}</i></p>
+				<p className="black-text"><i>{'Posted '} {getTimeMsg(this.props.post.created_at)}{' by '}{this.props.post.author}</i></p>
 
 				<div>
 					{ renderCommentButton ? <Link to={newCommentUrl}><a className="waves-effect waves-light btn flat">Add new comment</a></Link> : <span></span>}
@@ -44,12 +44,14 @@ class Post extends Component {
 				
 				<ul className="row">
 					{this.props.post.comments.map((comment,i) => 
-						<p key={i} className="valign-wrapper col s10 offset-s1">
+						<div className="row">
+						<p key={i} className="valign-wrapper offset-s1">
 						 <i className="small material-icons valign">label</i>
-						 <span>{comment}</span>
+						 <span>{comment.content}</span>
 
 						</p> 
-
+						<p className="black-text"><i>{' Commented '}{getTimeMsg(comment.created_at)}{' ago by '}{comment.author}</i></p>
+						</div>
 						)}
 				</ul>
 				

@@ -27,8 +27,15 @@ class CommentForm extends Component {
 
     // check if there is comment available to submit
     if(this.state.comment.length){
-      this.props.despatchAddComment(this.props.post._id,
-       this.state.comment);
+        this.props.despatchAddComment(this.props.post._id,{
+
+          content: this.state.comment,
+          created_at: Date.now(),
+          author: this.props.author
+
+        });
+
+    
       this.setState({ comment: ''});
 
       browserHistory.push('/'+ this.props.post.subredditId + '/' + this.props.post._id );
@@ -44,7 +51,7 @@ class CommentForm extends Component {
                  
 	             
 	                 
-	                    <input type="text" id="comment" value={ this.state.comment } onChange={this.handleChange.bind(this)} name="comment"  className="cursiveFont col s6 offset-s1" placeholder="comment"/>
+	                    <input type="text" id="comment" value={ this.state.comment } onChange={this.handleChange.bind(this)} name="comment"  className="cursiveFont col s6" placeholder="comment"/>
 
 	                
 	                   <button id="save" type="submit" className="btn small col s1 offset-s1" onClick={this.handleSubmit.bind(this)}>save</button>
@@ -66,7 +73,8 @@ CommentForm.propTypes = {
 // get props from store
 function mapStateToProps(state){
   return {
-  	post: state.posts.find(e => e._id === state.currentPostId)
+  	post: state.posts.find(e => e._id === state.currentPostId),
+    author: state.auth.username
   } 
 }
 

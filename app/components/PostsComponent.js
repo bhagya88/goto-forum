@@ -38,7 +38,7 @@ class PostsComponent extends Component {
 								<p className="valign-wrapper" ><i className="small material-icons valign">description</i>
 								<span>{e.title}</span></p>
 
-								<p className="black-text"><i>{getTimeMsg(e.created_at)}{' by '}{e.author}</i></p>
+								<p className="black-text"><i>{"Posted "}{ getTimeMsg(e.created_at) }{' ago by '}{e.author}</i></p>
 								<p className="pink-text">{e.comments.length} {'comments'}</p>
 							</div>
 							</Link>
