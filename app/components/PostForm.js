@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { despatchAddPost } from '../actions/posts_actions';
 
 class PostForm extends Component {
@@ -38,6 +39,8 @@ class PostForm extends Component {
 
       this.setState({ title: '', content:'' });
     }
+
+    browserHistory.push('/'+this.props.activeSubredditId);
     
   }
 	render() {

@@ -38,8 +38,7 @@ class PostsComponent extends Component {
 					</Link>
 				</div>
 
-				
-
+			
 				<ul>
 					<p>{'Goto '}{this.props.activeSubreddit}  {'Add Post'}</p>
 					{this.props.posts.map((e,i) => {

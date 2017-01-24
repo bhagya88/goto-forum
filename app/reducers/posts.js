@@ -24,7 +24,7 @@ export default function posts(state =[], action = {}){
 
 			case 'ADD_POST':
 			    var id = new Date().getTime();
-				var newState = state.concat(action.post);
+				var newState = [action.post].concat(state);
 
 				return newState;
 			default:

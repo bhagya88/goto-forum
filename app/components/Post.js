@@ -2,17 +2,28 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CommentForm from './CommentForm';
 import moment from 'moment';
+import { Link } from 'react-router';
 
 class Post extends Component {
 	render() {
 
-
-
-
-
+		var newCommentUrl = this.props.currentUrl +'/newcomment';
 
 		return (
+
 			<div>
+
+				<div>
+					<Link to={newCommentUrl}>
+						<a className="waves-effect waves-light btn flat">Add new comment</a>
+					</Link>
+				</div>
+
+				<div>
+				{this.props.children}
+				</div>
+
+
 				<p className="valign-wrapper row">
 					<i className="small material-icons valign">description</i>
 					{this.props.post.title}
@@ -30,9 +41,7 @@ class Post extends Component {
 
 						)}
 				</ul>
-				<div className="row">
-					<CommentForm />
-				</div>
+				
 			</div>
 		);
 	}
@@ -44,9 +53,10 @@ Post.propTypes = {
 
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state,ownProps){
   return {
-  	post: state.posts.find(e => e._id === state.currentPostId)
+  	post: state.posts.find(e => e._id === state.currentPostId),
+  	currentUrl: ownProps.location.pathname
   } 
 }
 

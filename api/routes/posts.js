@@ -7,8 +7,8 @@ const Post = require('../models/post');
 
 // get all posts
 router.get("/", function(req, res) {
-   console.log("articles request");
-  Post.find({})
+   
+  Post.find({}).sort({created_at: -1})
    
    .exec(function(error, doc) {
     // Log any errors

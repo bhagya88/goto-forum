@@ -14,8 +14,8 @@ class Login extends Component {
 
 	  this.state = {
 
-	    loginEmail: "",
-	    loginPassword : "",
+	    loginEmail: "bhagya@bhagya.com",
+	    loginPassword : "bhagya",
 	    loginMessage:this.props.loginMessage,
 
 
@@ -33,7 +33,7 @@ class Login extends Component {
 
   componentWillReceiveProps(nextProps){
   	if(nextProps.isLoggedIn){
-  		browserHistory.push('/');
+  		browserHistory.replace(this.props.redirectUrl);
   	}
     this.setState({
     				loginMessage: nextProps.loginMessage,
@@ -106,7 +106,7 @@ class Login extends Component {
 					</div>
 
 					<div className="row">
-						 <input type="text"  name="loginPassword" value={this.state.loginPassword}  onChange={this.handleChange.bind(this)}  className="cursiveFont col s8 offset-s2" placeholder="password"/>
+						 <input type="password"  name="loginPassword" value={this.state.loginPassword}  onChange={this.handleChange.bind(this)}  className="cursiveFont col s8 offset-s2" placeholder="password"/>
 					</div>
 
 				
@@ -128,7 +128,7 @@ class Login extends Component {
 								<input type="text"  name="signupEmail"  value={this.state.signupEmail}  onChange={this.handleChange.bind(this)} className="cursiveFont col s8 offset-s2" placeholder="email"/>
 						</div>
 						<div className="row">
-							 <input type="text"   name="signupPassword"  value={this.state.signupPassword}  onChange={this.handleChange.bind(this)} className="cursiveFont col s8 offset-s2" placeholder="password"/>
+							 <input type="password"   name="signupPassword"  value={this.state.signupPassword}  onChange={this.handleChange.bind(this)} className="cursiveFont col s8 offset-s2" placeholder="password"/>
 						</div>
 
 						<div className="row">
@@ -166,7 +166,8 @@ function mapStateToProps(state){
   return {
   	loginMessage: state.auth.loginMessage,
     signupMessage: state.auth.signupMessage,
-    isLoggedIn: state.auth.isLoggedIn
+    isLoggedIn: state.auth.isLoggedIn,
+    redirectUrl: state.auth.redirectUrl
 
   } 
 }

@@ -1,5 +1,6 @@
 export default function auth(state = {
 	isLoggedIn : false,
+	redirectUrl:"",
 	username: "",
 	loginMessage:"",
 	signupMessage:""
@@ -20,6 +21,10 @@ export default function auth(state = {
 		case 'SET_SIGNUP_MSG':
 
 				return {...state, signupMessage: action.msg }
+
+		case 'SET_REDIRECT_URL':
+
+				return {...state, redirectUrl: action.url }
 
 		default :
 

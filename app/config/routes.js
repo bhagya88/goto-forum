@@ -11,6 +11,7 @@ import Main from '../components/Main';
 import PostsComponent from '../components/PostsComponent';
 import Post from '../components/Post';
 import PostForm from '../components/PostForm';
+import CommentForm from '../components/CommentForm';
 import EnsureLoggedInContainer from '../components/EnsureLoggedInContainer';
 import Login from '../components/Login';
 //import Listing from '../components/subreddit/Listing';
@@ -31,20 +32,22 @@ module.exports = (
   <Provider store={store}>
 	  <Router history={browserHistory}>
 	    <Route path="/" component={Main}>
-	            
+
+	    		<Route path="login" component={Login} />
+	    		
 	            <Route component={EnsureLoggedInContainer}>
 	    			<Route path="newpost" component={PostForm} />
 					
 				</Route>
-	    		<Route path="login" component={Login} />
-	    		<Route path=":redditId" component={PostsComponent} />
-				<Route path=":redditId/:postId" component={Post} />
-				
-
-
 	    		
-				
-				
+				<Route path=":redditId" component={PostsComponent} />
+				<Route path=":redditId/:postId" component={Post} >
+					<Route component={EnsureLoggedInContainer}>
+						<Route path="newComment" component={CommentForm} />
+					</Route>
+
+				</Route>
+	            
 				<IndexRoute component={PostsComponent} />
 	    </Route>
 	  </Router>

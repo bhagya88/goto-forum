@@ -1,6 +1,7 @@
 // get all dependencies
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { browserHistory } from 'react-router';
 import { despatchAddComment } from '../actions/posts_actions';
 
 // comment Form components lets you submit a comment
@@ -29,6 +30,8 @@ class CommentForm extends Component {
       this.props.despatchAddComment(this.props.post._id,
        this.state.comment);
       this.setState({ comment: ''});
+
+      browserHistory.push('/'+ this.props.activeSubredditId + '/' + this.props.post._id );
     }
 
     
@@ -64,7 +67,8 @@ CommentForm.propTypes = {
 // get props from store
 function mapStateToProps(state){
   return {
-  	post: state.posts.find(e => e._id === state.currentPostId)
+  	post: state.posts.find(e => e._id === state.currentPostId),
+    activeSubredditId : state.activeSubreddit.replace(/ /g,'').toLowerCase(),
   } 
 }
 

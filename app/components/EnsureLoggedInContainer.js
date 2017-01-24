@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
+import { setRedirectUrl } from '../actions/auth_actions';
 
 
 class EnsureLoggedInContainer extends React.Component {
@@ -10,7 +11,7 @@ class EnsureLoggedInContainer extends React.Component {
     if (!this.props.isLoggedIn) {
       // set the current url/path for future redirection (we use a Redux action)
       // then redirect (we use a React Router method)
-      //dispatch(setRedirectUrl(this.props.currentURL))
+      this.props.setRedirectUrl(this.props.currentURL);
       browserHistory.replace("/login")
     }
   }
@@ -30,9 +31,9 @@ class EnsureLoggedInContainer extends React.Component {
 // the current position in the app.
 function mapStateToProps(state, ownProps) {
   return {
-    isLoggedIn: state.auth.isLoggedIn
-   // currentURL: ownProps.location.pathname
+    isLoggedIn: state.auth.isLoggedIn,
+    currentURL: ownProps.location.pathname
   }
 }
 
-export default connect(mapStateToProps)(EnsureLoggedInContainer)
+export default connect(mapStateToProps,{ setRedirectUrl })(EnsureLoggedInContainer)
