@@ -26,7 +26,7 @@ class Menu extends Component {
 		<div className="row pink valign-wrapper ">
 					
 			{this.props.activeSubreddit === '' ? 
-			  <div className="col s1 offset-s2 waves-effect teal lighten-1"><Link to="/all" onClick={this.props.setActive.bind(null,'')}>All</Link></div> 
+			  <div className="col s1 offset-s2 teal lighten-1"><Link to="/all" onClick={this.props.setActive.bind(null,'')}>All</Link></div> 
 			  :
 			  <div className="col s1 offset-s2 waves-effect"><Link to="/all" onClick={this.props.setActive.bind(null,'')}>All</Link></div> 
 			}
