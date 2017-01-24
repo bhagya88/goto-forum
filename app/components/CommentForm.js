@@ -31,7 +31,7 @@ class CommentForm extends Component {
        this.state.comment);
       this.setState({ comment: ''});
 
-      browserHistory.push('/'+ this.props.activeSubredditId + '/' + this.props.post._id );
+      browserHistory.push('/'+ this.post.subredditId + '/' + this.props.post._id );
     }
 
     
@@ -67,8 +67,7 @@ CommentForm.propTypes = {
 // get props from store
 function mapStateToProps(state){
   return {
-  	post: state.posts.find(e => e._id === state.currentPostId),
-    activeSubredditId : state.activeSubreddit.replace(/ /g,'').toLowerCase(),
+  	post: state.posts.find(e => e._id === state.currentPostId)
   } 
 }
 

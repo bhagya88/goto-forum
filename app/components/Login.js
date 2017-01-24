@@ -96,10 +96,11 @@ class Login extends Component {
 
 		return (
 			<div className="row valign-wrapper">
+				
 
-				<div className="col s6">
+				<div className=" card col s5">
 
-		
+					<div className="row center"> Already a member? Login</div>
 
 					<div className="row">
 							<input type="text"  name="loginEmail" value={this.state.loginEmail}  onChange={this.handleChange.bind(this)} className="cursiveFont col s8 offset-s2" placeholder="email"/>
@@ -122,7 +123,9 @@ class Login extends Component {
 				</div>
 
 
-				<div className="col s6">
+				<div className="col s5 card offset-s1">
+
+						<div className="row center"> New member? Signup</div>
 
 						<div className="row">
 								<input type="text"  name="signupEmail"  value={this.state.signupEmail}  onChange={this.handleChange.bind(this)} className="cursiveFont col s8 offset-s2" placeholder="email"/>

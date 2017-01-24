@@ -5,7 +5,16 @@ import moment from 'moment';
 import { Link } from 'react-router';
 
 class Post extends Component {
+
+
 	render() {
+
+		var renderCommentButton = true;
+		var regEx = /(newcomment)$/;
+
+		if( regEx.test(this.props.currentUrl) ){
+			renderCommentButton = false;
+		}
 
 		var newCommentUrl = this.props.currentUrl +'/newcomment';
 
@@ -14,9 +23,7 @@ class Post extends Component {
 			<div>
 
 				<div>
-					<Link to={newCommentUrl}>
-						<a className="waves-effect waves-light btn flat">Add new comment</a>
-					</Link>
+					{ renderCommentButton ? <Link to={newCommentUrl}><a className="waves-effect waves-light btn flat">Add new comment</a></Link> : <span></span>}
 				</div>
 
 				<div>
