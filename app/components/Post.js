@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import CommentForm from './CommentForm';
 import moment from 'moment';
 import { Link } from 'react-router';
+import getTimeMsg  from '../utils/getTimeMsg';
+
 
 class Post extends Component {
 
@@ -22,6 +24,13 @@ class Post extends Component {
 
 			<div>
 
+
+				<p className="valign-wrapper row">
+					<i className="small material-icons valign">description</i>
+					{this.props.post.title}
+				</p>
+				<p className="black-text"><i>{getTimeMsg(this.props.post.created_at)}{' by '}{this.props.post.author}</i></p>
+
 				<div>
 					{ renderCommentButton ? <Link to={newCommentUrl}><a className="waves-effect waves-light btn flat">Add new comment</a></Link> : <span></span>}
 				</div>
@@ -31,12 +40,7 @@ class Post extends Component {
 				</div>
 
 
-				<p className="valign-wrapper row">
-					<i className="small material-icons valign">description</i>
-					{this.props.post.title}
-					
-
-				</p>
+			
 				
 				<ul className="row">
 					{this.props.post.comments.map((comment,i) => 

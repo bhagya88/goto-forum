@@ -4,6 +4,8 @@ import { setCurrent } from '../actions/currentPostId_actions';
 import { Link } from 'react-router';
 import PostForm from './PostForm';
 import { despatchSetPosts } from '../actions/posts_actions';
+import getTimeMsg  from '../utils/getTimeMsg';
+
 import moment from 'moment';
 
 class PostsComponent extends Component {
@@ -11,20 +13,6 @@ class PostsComponent extends Component {
 	componentDidMount(){
 
 	this.props.despatchSetPosts();	
-	}
-
-
-	getTimeMsg(time){
-
-
-		var now = moment(new Date());
-		var dt = moment(new Date(time));
-		var timeMsg = 'posted ' + moment.duration(now.diff(dt)).humanize() + ' ago';
-
-		return timeMsg;
-
-		
-
 	}
 
 	render() {
@@ -38,7 +26,7 @@ class PostsComponent extends Component {
 					</Link>
 				</div>
 
-			
+
 				<ul>
 					<p>{'Goto '}{this.props.activeSubreddit}  {'Add Post'}</p>
 					{this.props.posts.map((e,i) => {
@@ -50,7 +38,7 @@ class PostsComponent extends Component {
 								<p className="valign-wrapper" ><i className="small material-icons valign">description</i>
 								<span>{e.title}</span></p>
 
-								<p className="black-text"><i>{this.getTimeMsg(e.created_at)}{' by '}{e.author}</i></p>
+								<p className="black-text"><i>{getTimeMsg(e.created_at)}{' by '}{e.author}</i></p>
 								<p className="pink-text">{e.comments.length} {'comments'}</p>
 							</div>
 							</Link>

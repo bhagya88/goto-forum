@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 import { despatchAddComment } from '../actions/posts_actions';
+import getTimeMsg  from '../utils/getTimeMsg';
 
 // comment Form components lets you submit a comment
 class CommentForm extends Component {
@@ -31,7 +32,7 @@ class CommentForm extends Component {
        this.state.comment);
       this.setState({ comment: ''});
 
-      browserHistory.push('/'+ this.post.subredditId + '/' + this.props.post._id );
+      browserHistory.push('/'+ this.props.post.subredditId + '/' + this.props.post._id );
     }
 
     

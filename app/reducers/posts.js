@@ -13,7 +13,7 @@ export default function posts(state =[], action = {}){
 
 		    	if(newPost._id === action.id){
 		    	
-		    		newPost.comments = post.comments.concat(action.comment);
+		    		newPost.comments = [action.comment].concat(post.comments);
 		    	}
 
 		    	return newPost;
